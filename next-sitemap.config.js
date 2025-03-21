@@ -4,7 +4,7 @@ const BLOG = require('./blog.config')
  * 通常没啥用，sitemap交给 /pages/sitemap.xml.js 动态生成
  */
 module.exports = {
-  siteUrl: https://notion-next-smoky-six-81.vercel.app/,
+  siteUrl: 'https://notion-next-smoky-six-81.vercel.app/',
   changefreq: 'daily',
   priority: 0.7,
   generateRobotsTxt: true,
