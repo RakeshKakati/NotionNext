@@ -54,7 +54,7 @@ const CONFIG = {
   HEO_INFO_CARD_URL2: '',
   HEO_INFO_CARD_ICON2: 'fab fa-github',
   HEO_INFO_CARD_URL3: 'https://www.newswireindiaonline.com',
-  HEO_INFO_CARD_TEXT3: '了解更多',
+  HEO_INFO_CARD_TEXT3: '',
 
   // 用户技能图标
   HEO_GROUP_ICONS: [
@@ -116,7 +116,7 @@ const CONFIG = {
     }
   ],
 
-  HEO_SOCIAL_CARD: true, // 是否显示右侧，点击加入社群按钮
+  HEO_SOCIAL_CARD: false, // 是否显示右侧，点击加入社群按钮
   HEO_SOCIAL_CARD_TITLE_1: 'Follow',
   HEO_SOCIAL_CARD_TITLE_2: 'Newswire India',
   HEO_SOCIAL_CARD_TITLE_3: 'On Youtube',
@@ -151,7 +151,7 @@ const CONFIG = {
   HEO_WIDGET_LATEST_POSTS: true, // 显示最新文章卡
   HEO_WIDGET_ANALYTICS: false, // 显示统计卡
   HEO_WIDGET_TO_TOP: true,
-  HEO_WIDGET_TO_COMMENT: true, // 跳到评论区
+  HEO_WIDGET_TO_COMMENT: false, // 跳到评论区
   HEO_WIDGET_DARK_MODE: true, // 夜间模式
   HEO_WIDGET_TOC: true // 移动端悬浮目录
 }
