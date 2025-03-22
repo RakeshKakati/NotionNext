@@ -39,7 +39,7 @@ const CONFIG = {
 
   // 右侧个人资料卡牌欢迎语，点击可自动切换
   HEO_INFOCARD_GREETINGS: [
-    '你好！我是',
+    '',
     '🔍 Search Trending News',
     '🤝 Latest AI News',
     '🏃 Latest Stock News',
