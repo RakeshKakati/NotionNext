@@ -19,7 +19,7 @@ const CONFIG = {
 
   // 英雄区(首页顶部大卡)
   HEO_HERO_TITLE_1: 'Introducing',
-  HEO_HERO_TITLE_2: 'Indias Largest Youth News Portal',
+  HEO_HERO_TITLE_2: 'Largest Youth News Portal',
   HEO_HERO_TITLE_3: 'NEWSWIREINDIA.COM',
   HEO_HERO_TITLE_4: 'Subscribe on Youtube',
   HEO_HERO_TITLE_5: 'Newswire India',
@@ -136,7 +136,7 @@ const CONFIG = {
   HEO_MENU_ARCHIVE: true, // 显示归档
   HEO_MENU_SEARCH: true, // 显示搜索
 
-  HEO_POST_LIST_COVER: true, // 列表显示文章封面
+  HEO_POST_LIST_COVER: false, // 列表显示文章封面
   HEO_POST_LIST_COVER_HOVER_ENLARGE: false, // 列表鼠标悬停放大
 
   HEO_POST_LIST_COVER_DEFAULT: true, // 封面为空时用站点背景做默认封面
