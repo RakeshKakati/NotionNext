@@ -8,8 +8,8 @@ const CONFIG = {
 
   // 首页顶部通知条滚动内容，如不需要可以留空 []
   HEO_NOTICE_BAR: [
-    { title: 'Newswire India', url: 'https://newswireindiaonline.com' },
-    { title: 'Latest News and Trends', url: 'https://newswireindiaonline.com' }
+    { title: 'Newswire India', url: 'https://otieu.com/4/9111418' },
+    { title: 'Latest News and Trends', url: 'https://otieu.com/4/9111418' }
   ],
 
   // 英雄区左右侧组件颠倒位置
@@ -23,7 +23,7 @@ const CONFIG = {
   HEO_HERO_TITLE_3: 'NEWSWIREINDIA.COM',
   HEO_HERO_TITLE_4: 'Subscribe on Youtube',
   HEO_HERO_TITLE_5: 'Newswire India',
-  HEO_HERO_TITLE_LINK: 'https://newswireindiaonline.com',
+  HEO_HERO_TITLE_LINK: 'https://otieu.com/4/9111418',
   // 英雄区遮罩文字
   HEO_HERO_COVER_TITLE: 'Newswire',
 
@@ -53,7 +53,7 @@ const CONFIG = {
   HEO_INFO_CARD_ICON1: '',
   HEO_INFO_CARD_URL2: '',
   HEO_INFO_CARD_ICON2: '',
-  HEO_INFO_CARD_URL3: 'https://www.newswireindiaonline.com',
+  HEO_INFO_CARD_URL3: 'https://otieu.com/4/9111418',
   HEO_INFO_CARD_TEXT3: '',
 
   // 用户技能图标
