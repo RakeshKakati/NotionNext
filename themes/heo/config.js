@@ -122,12 +122,6 @@ const CONFIG = {
   HEO_SOCIAL_CARD_TITLE_3: 'On Youtube',
   HEO_SOCIAL_CARD_URL: 'https://www.youtube.com/channel/UCxZHgckrCI89pBd8fqyXaXw',
 
-  // 底部统计面板文案
-  HEO_POST_COUNT_TITLE: 'Total Posts:',
-  HEO_SITE_TIME_TITLE: 'Total Site Time:',
-  HEO_SITE_VISIT_TITLE: 'Total Site Visits:',
-  HEO_SITE_VISITOR_TITLE: 'Total Site Vistors:',
-
   // *****  以下配置无效，只是预留开发 ****
   // 菜单配置
   HEO_MENU_INDEX: true, // 显示首页
