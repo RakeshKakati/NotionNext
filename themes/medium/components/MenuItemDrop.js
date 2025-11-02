@@ -22,10 +22,10 @@ export const MenuItemDrop = ({ link }) => {
       {hasSubMenu && (
         <div
           className={
-            'px-3 h-full whitespace-nowrap duration-300 text-sm justify-between dark:text-gray-300 cursor-pointer flex flex-nowrap items-center ' +
+            'px-3 h-full whitespace-nowrap duration-300 text-sm justify-between text-black dark:text-white cursor-pointer flex flex-nowrap items-center ' +
             (selected
-              ? 'bg-green-600 text-white hover:text-white'
-              : 'hover:text-green-600')
+              ? 'font-semibold'
+              : 'hover:opacity-70')
           }>
           <div>
             {link?.icon && <i className={link?.icon} />} {link?.name}
@@ -40,13 +40,13 @@ export const MenuItemDrop = ({ link }) => {
       {!hasSubMenu && (
         <div
           className={
-            'px-3 h-full whitespace-nowrap duration-300 text-sm justify-between dark:text-gray-300 cursor-pointer flex flex-nowrap items-center ' +
+            'px-3 h-full whitespace-nowrap duration-300 text-sm justify-between text-black dark:text-white cursor-pointer flex flex-nowrap items-center ' +
             (selected
-              ? 'bg-green-600 text-white hover:text-white'
-              : 'hover:text-green-600')
+              ? 'font-semibold'
+              : 'hover:opacity-70')
           }>
-          <Link href={link?.href} target={link?.target}>
-            {link?.icon && <i className={link?.icon} />} {link?.name}
+          <Link href={link?.href} target={link?.target} className='flex items-center'>
+            {link?.icon && <i className={link?.icon} />} <span className={link?.icon ? 'ml-1' : ''}>{link?.name}</span>
           </Link>
         </div>
       )}
@@ -54,14 +54,14 @@ export const MenuItemDrop = ({ link }) => {
       {/* 子菜单 */}
       {hasSubMenu && (
         <ul
-          className={`${show ? 'visible opacity-100 top-12 ' : 'invisible opacity-0 top-10 '} border-gray-100  bg-white  dark:bg-black dark:border-gray-800 transition-all duration-300 z-20 absolute block drop-shadow-lg `}>
+          className={`${show ? 'visible opacity-100 top-14 ' : 'invisible opacity-0 top-12 '} border border-gray-200 bg-white dark:bg-black dark:border-gray-800 transition-all duration-300 z-20 absolute block shadow-lg rounded-sm`}>
           {link?.subMenus?.map(sLink => {
             return (
               <li
                 key={sLink.id}
-                className='not:last-child:border-b-0 border-b text-gray-700 dark:text-gray-200  hover:bg-gray-50 dark:hover:bg-gray-900 tracking-widest transition-all duration-200  dark:border-gray-800 py-3 pr-6 pl-3'>
+                className='not:last-child:border-b-0 border-b border-gray-100 dark:border-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-900 transition-all duration-200 py-3 pr-6 pl-3'>
                 <Link href={sLink.href} target={link?.target}>
-                  <span className='text-xs font-extralight'>
+                  <span className='text-sm'>
                     {link?.icon && <i className={sLink?.icon}> &nbsp; </i>}
                     {sLink.title}
                   </span>

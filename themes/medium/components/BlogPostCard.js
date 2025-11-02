@@ -16,71 +16,69 @@ const BlogPostCard = ({ post, showSummary }) => {
   return (
     <div
       key={post.id}
-      data-aos='fade-up'
-      data-aos-duration='300'
-      data-aos-once='false'
-      data-aos-anchor-placement='top-bottom'
-      className='mb-6 max-w-7xl border-b dark:border-gray-800 '>
-      <header className='lg:py-8 py-4 flex flex-col w-full'>
+      className='mb-12 pb-8 border-b border-gray-200 dark:border-gray-800'>
+      <header className='flex flex-col w-full'>
         <Link
           href={post?.href}
           passHref
-          className={
-            'cursor-pointer font-bold  hover:underline text-3xl leading-tight text-gray-700 dark:text-gray-300 hover:text-green-500 dark:hover:text-green-400'
-          }>
-          <h2>
-            {siteConfig('MEDIUM_POST_LIST_COVER', null, CONFIG) && (
-              <div className='w-full max-h-96 object-cover overflow-hidden mb-2'>
+          className='group cursor-pointer'>
+          <h2 className='text-2xl md:text-3xl lg:text-4xl font-bold leading-tight mb-6 text-black dark:text-white group-hover:opacity-70 transition-opacity'>
+            {siteConfig('MEDIUM_POST_LIST_COVER', null, CONFIG) && post.pageCoverThumbnail && (
+              <div className='w-full h-64 md:h-96 object-cover overflow-hidden mb-6 rounded-sm'>
                 <LazyImage
                   src={post.pageCoverThumbnail}
-                  style={post.pageCoverThumbnail ? {} : { height: '0px' }}
-                  className='w-full max-h-96 object-cover hover:scale-125 duration-150'
+                  className='w-full h-full object-cover'
+                  alt={post.title}
                 />
               </div>
             )}
             {siteConfig('POST_TITLE_ICON') && (
               <NotionIcon icon={post.pageIcon} />
             )}
-            {post.title}
+            <span>{post.title}</span>
           </h2>
         </Link>
 
-        <div
-          className={
-            'flex mt-2 items-center justify-start flex-wrap space-x-3 text-gray-400'
-          }>
-          <div className='text-sm py-1'>{post.date?.start_date}</div>
-          {siteConfig('MEDIUM_POST_LIST_CATEGORY', null, CONFIG) && (
-            <CategoryItem category={post.category} />
+        <div className='flex items-center flex-wrap gap-2 text-sm text-gray-500 dark:text-gray-400 mb-6'>
+          <span className='text-black dark:text-white font-medium'>{post.date?.start_date}</span>
+          {siteConfig('MEDIUM_POST_LIST_CATEGORY', null, CONFIG) && post.category && (
+            <>
+              <span className='text-gray-400 dark:text-gray-600 mx-1'>·</span>
+              <CategoryItem category={post.category} />
+            </>
           )}
           {siteConfig('MEDIUM_POST_LIST_TAG', null, CONFIG) &&
             post?.tagItems?.map(tag => (
-              <TagItemMini key={tag.name} tag={tag} />
+              <span key={tag.name}>
+                <span className='text-gray-400 dark:text-gray-600 mx-1'>·</span>
+                <TagItemMini tag={tag} />
+              </span>
             ))}
-          <TwikooCommentCount post={post} className='hover:underline' />
+          {siteConfig('MEDIUM_POST_LIST_TAG', null, CONFIG) && post?.tagItems?.length > 0 && (
+            <>
+              <span className='text-gray-400 dark:text-gray-600 mx-1'>·</span>
+              <TwikooCommentCount post={post} className='text-gray-500 dark:text-gray-400' />
+            </>
+          )}
         </div>
 
-        <div className='flex'></div>
-
-        {(!showPreview || showSummary) && (
-          <main className='my-4 text-gray-700 dark:text-gray-300 text-sm font-light leading-7'>
+        {(!showPreview || showSummary) && post.summary && (
+          <main className='mt-4 text-base text-gray-700 dark:text-gray-300 leading-relaxed font-normal'>
             {post.summary}
           </main>
         )}
 
         {showPreview && (
-          <div className='overflow-ellipsis truncate'>
+          <div className='mt-4'>
             <NotionPage post={post} />
-            <div className='pointer-events-none border-t pt-8 border-dashed'>
-              <div className='w-full justify-start flex'>
-                <Link
-                  href={post?.href}
-                  passHref
-                  className='hover:bg-opacity-100 hover:scale-105 duration-200 pointer-events-auto transform font-bold text-green-500 cursor-pointer'>
-                  {locale.COMMON.ARTICLE_DETAIL}
-                  <i className='ml-1 fas fa-angle-right' />
-                </Link>
-              </div>
+            <div className='pt-6 mt-6 border-t border-gray-200 dark:border-gray-800'>
+              <Link
+                href={post?.href}
+                passHref
+                className='inline-flex items-center text-sm font-medium text-gray-700 dark:text-gray-300 hover:opacity-70 transition-opacity'>
+                {locale.COMMON.ARTICLE_DETAIL}
+                <i className='ml-2 fas fa-arrow-right text-xs' />
+              </Link>
             </div>
           </div>
         )}

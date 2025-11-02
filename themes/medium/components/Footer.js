@@ -10,47 +10,31 @@ const Footer = ({ title }) => {
     parseInt(since) < currentYear ? since + '-' + currentYear : currentYear
 
   return (
-    <footer className='z-10 dark:bg-hexo-black-gray flex-shrink-0 justify-center text-center m-auto w-full leading-6 text-sm p-6 relative'>
-      <DarkModeButton />
-      <i className='fas fa-copyright' /> {`${copyrightDate}`}
-      <span>
-        <i className='mx-1 animate-pulse fas fa-heart' />
-        <a
-          href={siteConfig('LINK')}
-          className='underline font-bold text-gray-500 dark:text-gray-300 '>
-          {siteConfig('AUTHOR')}
-        </a>
-        .<br />
+    <footer className='z-10 bg-white dark:bg-black flex-shrink-0 justify-center text-center m-auto w-full leading-6 text-sm py-12 px-6 mt-16 border-t border-gray-200 dark:border-gray-800'>
+      <div className='mb-4'>
+        <DarkModeButton />
+      </div>
+      <div className='text-gray-500 dark:text-gray-400 space-y-2'>
+        <div>
+          © {copyrightDate} <a href={siteConfig('LINK')} className='hover:opacity-70 transition-opacity text-black dark:text-white'>{siteConfig('AUTHOR')}</a>
+        </div>
         {siteConfig('BEI_AN') && (
-          <>
-            <i className='fas fa-shield-alt' />
-            <a href='https://beian.miit.gov.cn/' className='mr-2'>
+          <div className='text-xs'>
+            <a href='https://beian.miit.gov.cn/' className='hover:opacity-70 transition-opacity'>
               {siteConfig('BEI_AN')}
             </a>
-            <br />
-          </>
+          </div>
         )}
         <BeiAnGongAn />
-        <span className='hidden busuanzi_container_site_pv'>
+        <div className='hidden busuanzi_container_site_pv text-xs'>
           <i className='fas fa-eye' />
           <span className='px-1 busuanzi_value_site_pv'> </span>
-        </span>
-        <span className='pl-2 hidden busuanzi_container_site_uv'>
+        </div>
+        <div className='hidden busuanzi_container_site_uv text-xs'>
           <i className='fas fa-users' />
           <span className='px-1 busuanzi_value_site_uv'> </span>
-        </span>
-        <br />
-        <h1>{title}</h1>
-        <span className='text-xs font-serif'>
-          Powered by
-          <a
-            href='https://github.com/tangly1024/NotionNext'
-            className='underline text-gray-500 dark:text-gray-300'>
-            NotionNext {siteConfig('VERSION')}
-          </a>
-          .
-        </span>
-      </span>
+        </div>
+      </div>
     </footer>
   )
 }

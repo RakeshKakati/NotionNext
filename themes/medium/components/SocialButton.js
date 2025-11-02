@@ -7,14 +7,14 @@ import { siteConfig } from '@/lib/config'
  */
 const SocialButton = () => {
   return (
-    <div className='space-x-3 text-xl text-gray-600 dark:text-gray-400 flex-wrap flex justify-center '>
+    <div className='space-x-4 text-lg text-gray-500 dark:text-gray-500 flex-wrap flex justify-center '>
       {siteConfig('CONTACT_GITHUB') && (
         <a
           target='_blank'
           rel='noreferrer'
           title={'github'}
           href={siteConfig('CONTACT_GITHUB')}>
-          <i className='fab fa-github transform hover:scale-125 duration-150 hover:text-green-600' />
+          <i className='fab fa-github hover:opacity-70 transition-opacity' />
         </a>
       )}
       {siteConfig('CONTACT_TWITTER') && (
@@ -23,7 +23,7 @@ const SocialButton = () => {
           rel='noreferrer'
           title={'twitter'}
           href={siteConfig('CONTACT_TWITTER')}>
-          <i className='fab fa-twitter transform hover:scale-125 duration-150 hover:text-green-600' />
+          <i className='fab fa-twitter hover:opacity-70 transition-opacity' />
         </a>
       )}
       {siteConfig('CONTACT_TELEGRAM') && (
@@ -32,7 +32,7 @@ const SocialButton = () => {
           rel='noreferrer'
           href={siteConfig('CONTACT_TELEGRAM')}
           title={'telegram'}>
-          <i className='fab fa-telegram transform hover:scale-125 duration-150 hover:text-green-600' />
+          <i className='fab fa-telegram hover:opacity-70 transition-opacity' />
         </a>
       )}
       {siteConfig('CONTACT_LINKEDIN') && (
@@ -41,7 +41,7 @@ const SocialButton = () => {
           rel='noreferrer'
           href={siteConfig('CONTACT_LINKEDIN')}
           title={'linkedIn'}>
-          <i className='transform hover:scale-125 duration-150 fab fa-linkedin dark:hover:text-indigo-400 hover:text-indigo-600' />
+          <i className='fab fa-linkedin hover:opacity-70 transition-opacity' />
         </a>
       )}
       {siteConfig('CONTACT_WEIBO') && (
@@ -50,7 +50,7 @@ const SocialButton = () => {
           rel='noreferrer'
           title={'weibo'}
           href={siteConfig('CONTACT_WEIBO')}>
-          <i className='fab fa-weibo transform hover:scale-125 duration-150 hover:text-green-600' />
+          <i className='fab fa-weibo hover:opacity-70 transition-opacity' />
         </a>
       )}
       {siteConfig('CONTACT_INSTAGRAM') && (
@@ -59,7 +59,7 @@ const SocialButton = () => {
           rel='noreferrer'
           title={'instagram'}
           href={siteConfig('CONTACT_INSTAGRAM')}>
-          <i className='fab fa-instagram transform hover:scale-125 duration-150 hover:text-green-600' />
+          <i className='fab fa-instagram hover:opacity-70 transition-opacity' />
         </a>
       )}
       {siteConfig('CONTACT_EMAIL') && (
@@ -68,7 +68,7 @@ const SocialButton = () => {
           rel='noreferrer'
           title={'email'}
           href={`mailto:${siteConfig('CONTACT_EMAIL')}`}>
-          <i className='fas fa-envelope transform hover:scale-125 duration-150 hover:text-green-600' />
+          <i className='fas fa-envelope hover:opacity-70 transition-opacity' />
         </a>
       )}
       {JSON.parse(siteConfig('ENABLE_RSS')) && (
@@ -77,7 +77,7 @@ const SocialButton = () => {
           rel='noreferrer'
           title={'RSS'}
           href={'/rss/feed.xml'}>
-          <i className='fas fa-rss transform hover:scale-125 duration-150 hover:text-green-600' />
+          <i className='fas fa-rss hover:opacity-70 transition-opacity' />
         </a>
       )}
       {siteConfig('CONTACT_BILIBILI') && (
@@ -86,7 +86,7 @@ const SocialButton = () => {
           rel='noreferrer'
           title={'bilibili'}
           href={siteConfig('CONTACT_BILIBILI')}>
-          <i className='fab fa-bilibili transform hover:scale-125 duration-150 hover:text-green-600' />
+          <i className='fab fa-bilibili hover:opacity-70 transition-opacity' />
         </a>
       )}
       {siteConfig('CONTACT_YOUTUBE') && (
@@ -95,7 +95,7 @@ const SocialButton = () => {
           rel='noreferrer'
           title={'youtube'}
           href={siteConfig('CONTACT_YOUTUBE')}>
-          <i className='fab fa-youtube transform hover:scale-125 duration-150 hover:text-green-600' />
+          <i className='fab fa-youtube hover:opacity-70 transition-opacity' />
         </a>
       )}
     </div>

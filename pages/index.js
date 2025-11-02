@@ -30,18 +30,30 @@ export async function getStaticProps(req) {
     12,
     props?.NOTION_CONFIG
   )
-  props.posts = props.allPages?.filter(
+  const allPosts = props.allPages?.filter(
     page => page.type === 'Post' && page.status === 'Published'
-  )
+  ) || []
+
+  // Sort posts by date (newest first) to ensure all posts show up correctly
+  const sortedPosts = [...allPosts].sort((a, b) => {
+    const dateA = new Date(a?.publishDate || a?.date?.start_date || a?.lastEditedDate || 0)
+    const dateB = new Date(b?.publishDate || b?.date?.start_date || b?.lastEditedDate || 0)
+    return dateB - dateA // Newest first
+  })
+
+  // Set postCount for pagination
+  props.postCount = sortedPosts.length
 
   // 处理分页
   if (siteConfig('POST_LIST_STYLE') === 'scroll') {
     // 滚动列表默认给前端返回所有数据
+    props.posts = sortedPosts
   } else if (siteConfig('POST_LIST_STYLE') === 'page') {
-    props.posts = props.posts?.slice(
-      0,
-      siteConfig('POSTS_PER_PAGE', 12, props?.NOTION_CONFIG)
-    )
+    const POSTS_PER_PAGE = siteConfig('POSTS_PER_PAGE', 12, props?.NOTION_CONFIG)
+    props.posts = sortedPosts.slice(0, POSTS_PER_PAGE)
+    props.page = 1 // First page
+  } else {
+    props.posts = sortedPosts
   }
 
   // 预览文章内容

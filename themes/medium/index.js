@@ -32,6 +32,7 @@ import TagGroups from './components/TagGroups'
 import TagItemMini from './components/TagItemMini'
 import TocDrawer from './components/TocDrawer'
 import TopNavBar from './components/TopNavBar'
+import RecentPosts from './components/RecentPosts'
 import CONFIG from './config'
 import { Style } from './style'
 
@@ -46,7 +47,7 @@ export const useMediumGlobal = () => useContext(ThemeGlobalMedium)
  * @constructor
  */
 const LayoutBase = props => {
-  const { children, showInfoCard = true, post, notice } = props
+  const { children, showInfoCard = true, post, notice, latestPosts } = props
   const { locale } = useGlobal()
   const router = useRouter()
   const [tocVisible, changeTocVisible] = useState(false)
@@ -74,7 +75,7 @@ const LayoutBase = props => {
 
       <div
         id='theme-medium'
-        className={`${siteConfig('FONT_STYLE')} bg-white dark:bg-hexo-black-gray w-full h-full min-h-screen justify-center dark:text-gray-300 scroll-smooth`}>
+        className={`${siteConfig('FONT_STYLE')} bg-white dark:bg-black w-full h-full min-h-screen justify-center dark:text-gray-300 scroll-smooth`}>
         <main
           id='wrapper'
           className={
@@ -92,7 +93,7 @@ const LayoutBase = props => {
 
             <div
               id='container-inner'
-              className={`px-7 ${fullWidth ? '' : 'max-w-5xl'} justify-center mx-auto min-h-screen`}>
+              className={`px-4 md:px-8 ${fullWidth ? '' : 'max-w-4xl'} justify-center mx-auto min-h-screen pt-8`}>
               <Transition
                 show={!onLoading}
                 appear={true}
@@ -117,7 +118,7 @@ const LayoutBase = props => {
           {/* 桌面端右侧 */}
           {fullWidth ? null : (
             <div
-              className={`hidden xl:block border-l dark:border-transparent w-80 flex-shrink-0 relative z-10 ${siteConfig('MEDIUM_RIGHT_PANEL_DARK', null, CONFIG) ? 'bg-hexo-black-gray dark' : ''}`}>
+              className={`hidden xl:block border-l border-gray-200 dark:border-gray-800 w-80 flex-shrink-0 relative z-10 bg-white dark:bg-black`}>
               <div className='py-14 px-6 sticky top-0'>
                 <Tabs>
                   {slotRight}
@@ -126,6 +127,9 @@ const LayoutBase = props => {
                       <SearchInput className='mt-6  mb-12' />
                     )}
                     {showInfoCard && <InfoCard {...props} />}
+                    {latestPosts && latestPosts.length > 0 && (
+                      <RecentPosts latestPosts={latestPosts} currentPost={post} />
+                    )}
                     {siteConfig('MEDIUM_WIDGET_REVOLVER_MAPS', null, CONFIG) ===
                       'true' && <RevolverMaps />}
                   </div>

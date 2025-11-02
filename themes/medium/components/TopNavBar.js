@@ -81,24 +81,24 @@ export default function TopNavBar(props) {
         </div>
       </Collapse>
 
-      {/* 导航栏菜单 */}
-      <div className='flex w-full h-12 shadow bg-white dark:bg-hexo-black-gray px-7 items-between'>
+      {/* 导航栏菜单 - Medium style */}
+      <div className='flex w-full h-14 bg-white dark:bg-black px-4 md:px-8 items-center border-b border-gray-200 dark:border-gray-800 shadow-none'>
         {/* 左侧图标Logo */}
         <LogoBar {...props} />
 
         {/* 折叠按钮、仅移动端显示 */}
-        <div className='mr-1 flex md:hidden justify-end items-center text-sm space-x-4 font-serif dark:text-gray-200'>
-          <div onClick={toggleMenuOpen} className='cursor-pointer'>
+        <div className='ml-auto mr-2 flex md:hidden justify-end items-center text-base text-black dark:text-white'>
+          <button onClick={toggleMenuOpen} className='cursor-pointer p-2 hover:opacity-70 transition-opacity'>
             {isOpen ? (
               <i className='fas fa-times' />
             ) : (
               <i className='fas fa-bars' />
             )}
-          </div>
+          </button>
         </div>
 
         {/* 桌面端顶部菜单 */}
-        <div className='hidden md:flex'>
+        <div className='hidden md:flex ml-auto items-center gap-6'>
           {links &&
             links?.map((link, index) => (
               <MenuItemDrop key={index} link={link} />

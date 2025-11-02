@@ -12,10 +12,10 @@ import PaginationSimple from './PaginationSimple'
  * @returns {JSX.Element}
  * @constructor
  */
-const BlogPostListPage = ({ page = 1, posts = [], postCount }) => {
+const BlogPostListPage = ({ page = 1, posts = [], postCount = 0 }) => {
   const { NOTION_CONFIG } = useGlobal()
-  const POSTS_PER_PAGE = siteConfig('POSTS_PER_PAGE', null, NOTION_CONFIG)
-  const totalPage = Math.ceil(postCount / POSTS_PER_PAGE)
+  const POSTS_PER_PAGE = siteConfig('POSTS_PER_PAGE', 12, NOTION_CONFIG) || 12
+  const totalPage = postCount > 0 ? Math.ceil(postCount / POSTS_PER_PAGE) : 0
 
   if (!posts || posts.length === 0) {
     return <BlogPostListEmpty />

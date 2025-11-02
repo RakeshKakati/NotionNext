@@ -40,14 +40,27 @@ export async function getStaticProps({ params: { page }, locale }) {
 
   const allPosts = allPages?.filter(
     page => page.type === 'Post' && page.status === 'Published'
-  )
+  ) || []
+
+  // Sort posts by date (newest first) to ensure all posts show up correctly
+  const sortedPosts = [...allPosts].sort((a, b) => {
+    const dateA = new Date(a?.publishDate || a?.date?.start_date || a?.lastEditedDate || 0)
+    const dateB = new Date(b?.publishDate || b?.date?.start_date || b?.lastEditedDate || 0)
+    return dateB - dateA // Newest first
+  })
+
+  // Set postCount for pagination
+  props.postCount = sortedPosts.length
+
   const POSTS_PER_PAGE = siteConfig('POSTS_PER_PAGE', 12, props?.NOTION_CONFIG)
-  // 处理分页
-  props.posts = allPosts.slice(
-    POSTS_PER_PAGE * (page - 1),
-    POSTS_PER_PAGE * page
+  const pageNum = parseInt(page) || 1
+  
+  // 处理分页 - ensure we don't go beyond available posts
+  props.posts = sortedPosts.slice(
+    POSTS_PER_PAGE * (pageNum - 1),
+    POSTS_PER_PAGE * pageNum
   )
-  props.page = page
+  props.page = pageNum
 
   // 处理预览
   if (siteConfig('POST_LIST_PREVIEW', false, props?.NOTION_CONFIG)) {
